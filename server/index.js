@@ -1,6 +1,7 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const colors = require('colors');
+const cors = require('cors');
 
 const connectDB = require('./config/db');
 const schema = require('./schema/schema');
@@ -12,6 +13,8 @@ const app = express();
 
 //* Connect to database
 connectDB();
+
+app.use(cors());
 
 app.use(
 	'/graphql',
